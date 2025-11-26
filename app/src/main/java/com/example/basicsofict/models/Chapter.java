@@ -1,4 +1,4 @@
-package com.example.ictgrade1learning.models;
+package com.example.basicsofict.models;
 
 import java.util.List;
 
