@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity
 
         // Load default fragment
         if (savedInstanceState == null) {
-            loadFragment(new HomeFragment());
+            loadFragment(new com.example.ictgrade1learning.fragments.HomeFragment());
             navigationView.setCheckedItem(R.id.nav_home);
             bottomNavigationView.setSelectedItemId(R.id.bottom_nav_home);
         }
