@@ -7,9 +7,9 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import com.example.ictgrade1learning.R;
 
-public class HomeFragment extends Fragment {
+public class ProgressFragment extends Fragment {
 
-    public HomeFragment() {
+    public ProgressFragment() {
         // Required empty public constructor
     }
 
@@ -17,9 +17,9 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_progress, container, false);
 
-        // You can add any home fragment specific logic here later
+        // Progress tracking logic will be added in Phase 2
 
         return view;
     }
