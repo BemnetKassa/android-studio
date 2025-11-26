@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
-import com.example.ictgrade1learning.R;
+import com.example.basicsofict.R;
 
 public class ChaptersFragment extends Fragment {
 

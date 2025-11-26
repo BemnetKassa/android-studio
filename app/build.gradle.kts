@@ -3,10 +3,11 @@ plugins {
 }
 
 android {
+    namespace = "com.example.basicsofict"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.ictgrade1learning"
+        applicationId = "com.example.basicsofict"
         minSdk = 21
         targetSdk = 34
         versionCode = 1
@@ -38,6 +39,9 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.3.1")
     implementation("androidx.cardview:cardview:1.0.0")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
+
+    // Add Gson dependency
+    implementation("com.google.code.gson:gson:2.10.1")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

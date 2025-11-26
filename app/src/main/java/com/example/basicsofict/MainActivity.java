@@ -7,6 +7,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+
+import com.example.basicsofict.fragments.ActivitiesFragment;
+import com.example.basicsofict.fragments.ChaptersFragment;
+import com.example.basicsofict.fragments.HelpFragment;
+import com.example.basicsofict.fragments.HomeFragment;
+import com.example.basicsofict.fragments.ProgressFragment;
+import com.example.basicsofict.fragments.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
@@ -27,7 +34,7 @@ public class MainActivity extends AppCompatActivity
 
         // Load default fragment
         if (savedInstanceState == null) {
-            loadFragment(new com.example.ictgrade1learning.fragments.HomeFragment());
+            loadFragment(new com.example.basicsofict.fragments.HomeFragment());
             navigationView.setCheckedItem(R.id.nav_home);
             bottomNavigationView.setSelectedItemId(R.id.bottom_nav_home);
         }
