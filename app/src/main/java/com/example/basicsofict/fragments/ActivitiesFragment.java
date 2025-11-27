@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import com.example.basicsofict.R;
+import com.example.basicsofict.MainActivity;
 
 public class ActivitiesFragment extends Fragment {
 
@@ -16,11 +17,38 @@ public class ActivitiesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_activities, container, false);
 
-        // Activities logic will be added in Phase 3
+        setupActivityCards(view);
 
         return view;
+    }
+
+    private void setupActivityCards(View view) {
+        view.findViewById(R.id.card_drag_drop).setOnClickListener(v -> {
+            if (getActivity() instanceof MainActivity) {
+                ((MainActivity) getActivity()).loadFragment(new DragDropActivityFragment());
+            }
+        });
+
+        view.findViewById(R.id.card_multiple_choice).setOnClickListener(v -> {
+            if (getActivity() instanceof MainActivity) {
+                ((MainActivity) getActivity()).loadFragment(new MultipleChoiceFragment());
+            }
+        });
+
+        view.findViewById(R.id.card_coloring).setOnClickListener(v -> {
+            // TODO: Implement coloring activity in Phase 5
+            if (getActivity() instanceof MainActivity) {
+                // Placeholder for now
+            }
+        });
+
+        view.findViewById(R.id.card_typing).setOnClickListener(v -> {
+            // TODO: Implement typing practice in Phase 5
+            if (getActivity() instanceof MainActivity) {
+                // Placeholder for now
+            }
+        });
     }
 }
