@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
     android:background="@color/background_color">
 
     <TextView
@@ -14,16 +13,12 @@
         android:textStyle="bold"
         android:textColor="@color/text_primary"
         android:gravity="center"
-        android:layout_marginBottom="16dp" />
+        android:padding="16dp" />
 
-    <!-- Chapters will be displayed here using RecyclerView in Phase 2 -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_chapters"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Chapters list will be displayed here..."
-        android:textSize="16sp"
-        android:textColor="@color/text_secondary"
-        android:gravity="center"
-        android:layout_marginTop="32dp" />
+        android:layout_height="match_parent"
+        android:padding="8dp" />
 
 </LinearLayout>
