@@ -7,9 +7,8 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.basicsofict.MainActivity;
 import com.example.basicsofict.R;
+import com.example.basicsofict.MainActivity;
 import com.example.basicsofict.adapter.ChapterAdapter;
 import com.example.basicsofict.models.Chapter;
 import com.example.basicsofict.utils.ProgressManager;
@@ -50,10 +49,13 @@ public class ChaptersFragment extends Fragment implements ChapterAdapter.OnChapt
 
     @Override
     public void onChapterClick(Chapter chapter) {
-        // TODO: Navigate to chapter details (Phase 3)
-        // For now, show a simple message or implement basic navigation
+        // For now, just show a toast or log message
+        // We'll implement chapter details in Phase 3
         if (getActivity() instanceof MainActivity) {
-            // We'll implement chapter details in Phase 3
+            // Temporary: Show a simple message
+            android.widget.Toast.makeText(getContext(),
+                    "Opening: " + chapter.getTitle(),
+                    android.widget.Toast.LENGTH_SHORT).show();
         }
     }
 }

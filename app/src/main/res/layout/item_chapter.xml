@@ -83,6 +83,7 @@
 
                 </LinearLayout>
 
+                <!-- Use regular ProgressBar, not ContentLoadingProgressBar -->
                 <ProgressBar
                     android:id="@+id/progress_bar"
                     style="?android:attr/progressBarStyleHorizontal"
@@ -103,7 +104,7 @@
             android:layout_height="24dp"
             android:src="@drawable/ic_chevron_right"
             android:layout_gravity="center_vertical"
-            android:tint="@color/text_secondary" />
+            app:tint="@color/text_secondary" />
 
     </LinearLayout>
 

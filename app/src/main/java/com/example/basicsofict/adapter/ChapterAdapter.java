@@ -3,6 +3,7 @@ package com.example.basicsofict.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -54,7 +55,7 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterV
     static class ChapterViewHolder extends RecyclerView.ViewHolder {
         private TextView tvChapterNumber, tvChapterTitle, tvChapterDescription;
         private TextView tvProgressText, tvLessonsCount;
-        private androidx.core.widget.ContentLoadingProgressBar progressBar;
+        private ProgressBar progressBar; // Changed to regular ProgressBar
 
         public ChapterViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -63,7 +64,7 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterV
             tvChapterDescription = itemView.findViewById(R.id.tv_chapter_description);
             tvProgressText = itemView.findViewById(R.id.tv_progress_text);
             tvLessonsCount = itemView.findViewById(R.id.tv_lessons_count);
-            progressBar = itemView.findViewById(R.id.progress_bar);
+            progressBar = itemView.findViewById(R.id.progress_bar); // This should be regular ProgressBar
         }
 
         public void bind(Chapter chapter, ProgressManager progressManager) {

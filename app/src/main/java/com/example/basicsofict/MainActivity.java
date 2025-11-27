@@ -40,8 +40,7 @@ public class MainActivity extends AppCompatActivity
         navigationView = findViewById(R.id.nav_view);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        // REMOVED setSupportActionBar - we'll handle toolbar manually
-        // Just set up navigation icon
+        // Set up navigation icon
         androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,7 +96,8 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    private void loadFragment(Fragment fragment) {
+    // CHANGE FROM PRIVATE TO PUBLIC
+    public void loadFragment(Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.content_frame, fragment)

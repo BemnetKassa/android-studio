@@ -15,7 +15,7 @@ public class SampleData {
         Chapter chapter1 = new Chapter(
                 1,
                 "Working safely with computers",
-                "Learn how to stay safe in the computer lab",
+                "Learn computer lab safety rules",
                 "To work in a safe and healthy environment",
                 Arrays.asList(
                         "Recognise the health risks existing in the computer lab",
@@ -48,21 +48,30 @@ public class SampleData {
         chapter2Lessons.add(new Lesson("Switching on/off", "Press and hold the power button for 3 seconds...", "practice"));
         chapter2.setLessons(chapter2Lessons);
 
-        // Add more chapters following the same pattern...
+        // Chapter 3: Identifying parts and types of computers
+        Chapter chapter3 = new Chapter(
+                3,
+                "Identifying parts and types of computers",
+                "Learn about different computers and their parts",
+                "To introduce pupils with the different parts and types of computers",
+                Arrays.asList(
+                        "Identify the desktop computer, tablet, laptop, smartphone and the smartwatch",
+                        "Recognise the different parts of the computer"
+                )
+        );
+
+        List<Lesson> chapter3Lessons = new ArrayList<>();
+        chapter3Lessons.add(new Lesson("Types of computers", "Desktop, Laptop, Tablet, Smartphone...", "theory"));
+        chapter3Lessons.add(new Lesson("Computer parts", "Monitor, Mouse, Keyboard, System Unit...", "theory"));
+        chapter3Lessons.add(new Lesson("Coloring activity", "Color the different parts of computer", "activity"));
+        chapter3.setLessons(chapter3Lessons);
+
+        // Add Chapters 4-7 following the same pattern...
         chapters.add(chapter1);
         chapters.add(chapter2);
+        chapters.add(chapter3);
+        // Add remaining chapters here...
 
         return chapters;
-    }
-
-    public static List<String> getNavigationItems() {
-        return Arrays.asList(
-                "Home",
-                "All Chapters",
-                "My Progress",
-                "Activities",
-                "Settings",
-                "Help"
-        );
     }
 }
