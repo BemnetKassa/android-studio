@@ -9,18 +9,18 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Activities"
+        android:text="Settings"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/text_primary"
         android:gravity="center"
         android:layout_marginBottom="16dp" />
 
-    <!-- Activities will be displayed here in Phase 3 -->
+    <!-- Settings options will be added here later -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Interactive activities will be displayed here..."
+        android:text="App settings will be displayed here..."
         android:textSize="16sp"
         android:textColor="@color/text_secondary"
         android:gravity="center"

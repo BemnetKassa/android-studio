@@ -2,20 +2,15 @@ package com.example.basicsofict;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-
-import com.example.basicsofict.fragments.ActivitiesFragment;
-import com.example.basicsofict.fragments.ChaptersFragment;
-import com.example.basicsofict.fragments.HelpFragment;
-import com.example.basicsofict.fragments.HomeFragment;
-import com.example.basicsofict.fragments.ProgressFragment;
-import com.example.basicsofict.fragments.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.example.basicsofict.fragments.*;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -34,7 +29,7 @@ public class MainActivity extends AppCompatActivity
 
         // Load default fragment
         if (savedInstanceState == null) {
-            loadFragment(new com.example.basicsofict.fragments.HomeFragment());
+            loadFragment(new HomeFragment());
             navigationView.setCheckedItem(R.id.nav_home);
             bottomNavigationView.setSelectedItemId(R.id.bottom_nav_home);
         }
@@ -45,12 +40,15 @@ public class MainActivity extends AppCompatActivity
         navigationView = findViewById(R.id.nav_view);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        // Set up toolbar
-        setSupportActionBar(findViewById(R.id.toolbar));
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu);
-        }
+        // REMOVED setSupportActionBar - we'll handle toolbar manually
+        // Just set up navigation icon
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
     }
 
     private void setupNavigation() {
@@ -97,15 +95,6 @@ public class MainActivity extends AppCompatActivity
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            drawerLayout.openDrawer(GravityCompat.START);
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     private void loadFragment(Fragment fragment) {
