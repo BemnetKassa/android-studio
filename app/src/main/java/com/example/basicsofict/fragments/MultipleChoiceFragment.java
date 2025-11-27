@@ -12,6 +12,7 @@ import com.example.basicsofict.R;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import com.example.basicsofict.MainActivity;
 
 public class MultipleChoiceFragment extends Fragment {
 
@@ -149,4 +150,56 @@ public class MultipleChoiceFragment extends Fragment {
         } else {
             selectedButton.setBackgroundResource(R.drawable.option_wrong_bg);
             tvFeedback.setText("❌ Incorrect. The correct answer is: " + correctAnswer);
-            tvFeedback.setTextColor(getResources().getColor(R.color
+            tvFeedback.setTextColor(getResources().getColor(R.color.accent_color));
+
+            // Highlight correct answer
+            for (int i = 0; i < optionsContainer.getChildCount(); i++) {
+                View child = optionsContainer.getChildAt(i);
+                if (child instanceof Button) {
+                    Button btn = (Button) child;
+                    if (btn.getText().toString().equals(correctAnswer)) {
+                        btn.setBackgroundResource(R.drawable.option_correct_bg);
+                    }
+                }
+            }
+        }
+
+        tvFeedback.setVisibility(View.VISIBLE);
+        btnNext.setEnabled(true);
+    }
+
+    private void showNextQuestion() {
+        currentQuestionIndex++;
+        showQuestion(currentQuestionIndex);
+    }
+
+    private void showResults() {
+        tvQuestion.setText("Quiz Completed!");
+        optionsContainer.removeAllViews();
+        tvFeedback.setText("Your score: " + score + "/" + questions.size());
+        tvFeedback.setVisibility(View.VISIBLE);
+        btnNext.setText("Finish");
+        btnNext.setOnClickListener(v -> {
+            if (getActivity() instanceof MainActivity) {
+                ((MainActivity) getActivity()).onBackPressed();
+            }
+        });
+    }
+
+    // Question model class
+    private static class Question {
+        private String question;
+        private String[] options;
+        private int correctAnswer;
+
+        public Question(String question, String[] options, int correctAnswer) {
+            this.question = question;
+            this.options = options;
+            this.correctAnswer = correctAnswer;
+        }
+
+        public String getQuestion() { return question; }
+        public String[] getOptions() { return options; }
+        public int getCorrectAnswer() { return correctAnswer; }
+    }
+}
