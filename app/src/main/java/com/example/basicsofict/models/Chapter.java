@@ -1,8 +1,9 @@
 package com.example.basicsofict.models;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Chapter {
+public class Chapter implements Serializable {
     private int id;
     private String title;
     private String description;

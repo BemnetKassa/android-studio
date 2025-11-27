@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import com.example.basicsofict.R;
+import com.example.basicsofict.MainActivity;
 import com.example.basicsofict.models.Chapter;
 import com.example.basicsofict.models.Lesson;
 import com.example.basicsofict.utils.ProgressManager;

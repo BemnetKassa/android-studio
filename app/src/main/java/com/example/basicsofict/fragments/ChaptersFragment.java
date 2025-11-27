@@ -49,13 +49,10 @@ public class ChaptersFragment extends Fragment implements ChapterAdapter.OnChapt
 
     @Override
     public void onChapterClick(Chapter chapter) {
-        // For now, just show a toast or log message
-        // We'll implement chapter details in Phase 3
+        // Navigate to chapter detail
+        ChapterDetailFragment detailFragment = ChapterDetailFragment.newInstance(chapter);
         if (getActivity() instanceof MainActivity) {
-            // Temporary: Show a simple message
-            android.widget.Toast.makeText(getContext(),
-                    "Opening: " + chapter.getTitle(),
-                    android.widget.Toast.LENGTH_SHORT).show();
+            ((MainActivity) getActivity()).loadFragment(detailFragment);
         }
     }
 }

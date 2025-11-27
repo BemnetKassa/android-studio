@@ -1,6 +1,7 @@
 package com.example.basicsofict.models;
+import java.io.Serializable;
 
-public class Lesson {
+public class Lesson implements Serializable {
     private String title;
     private String content;
     private String activityType; // "theory", "practice", "interactive"

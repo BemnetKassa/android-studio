@@ -35,6 +35,7 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterV
         return new ChapterViewHolder(view);
     }
 
+    // In the onBindViewHolder method, update the click listener:
     @Override
     public void onBindViewHolder(@NonNull ChapterViewHolder holder, int position) {
         Chapter chapter = chapters.get(position);
