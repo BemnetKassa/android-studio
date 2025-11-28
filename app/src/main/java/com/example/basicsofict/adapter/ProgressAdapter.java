@@ -1,4 +1,3 @@
-// ProgressAdapter.java - NEW FILE in adapter package
 package com.example.basicsofict.adapter;
 
 import android.view.LayoutInflater;
@@ -74,8 +73,9 @@ public class ProgressAdapter extends RecyclerView.Adapter<ProgressAdapter.Progre
 
         private int getCompletedLessonsCount(Chapter chapter, ProgressManager progressManager) {
             int count = 0;
-            for (com.example.basicsofict.models.Lesson lesson : chapter.getLessons()) {
-                if (progressManager.isLessonCompleted(chapter.getId(), lesson.getId())) {
+            // Use loop index instead of lesson.getId()
+            for (int i = 0; i < chapter.getLessons().size(); i++) {
+                if (progressManager.isLessonCompleted(chapter.getId(), i + 1)) { // Use index + 1 as lesson ID
                     count++;
                 }
             }

@@ -215,4 +215,5 @@ public class MultipleChoiceFragment extends Fragment {
             progressManager.markLessonCompleted(chapterId, lessonId);
         }
     }
+
 }

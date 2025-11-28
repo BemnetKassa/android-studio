@@ -193,6 +193,9 @@ public class TypingPracticeFragment extends Fragment {
             tvInstruction.setTextColor(getResources().getColor(R.color.primary_color));
             wordsTyped++;
 
+            // MARK ACTIVITY AS COMPLETED WHEN TYPING IS SUCCESSFUL
+            markActivityCompleted();
+
             // Move to next text after delay
             etUserInput.postDelayed(() -> {
                 currentTextIndex = (currentTextIndex + 1) % practiceTexts.length;
@@ -207,23 +210,25 @@ public class TypingPracticeFragment extends Fragment {
         }
     }
 
+    // ✅ CORRECTLY PLACED METHOD - OUTSIDE OTHER METHODS BUT INSIDE THE CLASS
+    private void markActivityCompleted() {
+        ProgressManager progressManager = new ProgressManager(requireContext());
+        progressManager.markActivityCompleted("typing_practice"); // Changed to typing_practice
+
+        // Also mark the lesson as completed if this is part of a lesson
+        if (getArguments() != null) {
+            int chapterId = getArguments().getInt("chapterId", 1);
+            int lessonId = getArguments().getInt("lessonId", 1);
+            progressManager.markLessonCompleted(chapterId, lessonId);
+        }
+    }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         if (timer != null) {
             timer.cancel();
         }
-        // Add to the end of each activity fragment when activity is completed
-        private void markActivityCompleted() {
-            ProgressManager progressManager = new ProgressManager(requireContext());
-            progressManager.markActivityCompleted("multiple_choice"); // Change for each activity type
-
-            // Also mark the lesson as completed if this is part of a lesson
-            if (getArguments() != null) {
-                int chapterId = getArguments().getInt("chapterId", 1);
-                int lessonId = getArguments().getInt("lessonId", 1);
-                progressManager.markLessonCompleted(chapterId, lessonId);
-            }
-        }
+        // REMOVED THE INCORRECT METHOD FROM HERE
     }
 }

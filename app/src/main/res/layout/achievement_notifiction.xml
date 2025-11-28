@@ -1,0 +1,42 @@
+<!-- layout/achievement_notification.xml -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/achievement_bg"
+    android:padding="16dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical">
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_achievement"
+        android:layout_marginEnd="12dp" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_achievement_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Achievement Unlocked!"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_achievement_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fast Learner"
+            android:textSize="14sp"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+</LinearLayout>
