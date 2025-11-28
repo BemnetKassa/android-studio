@@ -1,32 +1,33 @@
+<!-- colors.xml -->
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
+    <!-- Primary Colors -->
+    <color name="primary_color">#4ECDC4</color> <!-- Bright Teal -->
+    <color name="primary_light">#88E8DF</color> <!-- Light Teal -->
+    <color name="primary_dark">#26A69A</color> <!-- Dark Teal -->
 
-    <color name="white">#FFFFFFFF</color>
+    <!-- Secondary Colors -->
+    <color name="secondary_color">#FF6B6B</color> <!-- Coral Red -->
+    <color name="secondary_light">#FF9E9E</color> <!-- Light Coral -->
+    <color name="secondary_dark">#FF4757</color> <!-- Dark Coral -->
 
-    <!-- App Color Scheme -->
-    <color name="primary_color">#4CAF50</color>
-    <color name="primary_dark">#388E3C</color>
-    <color name="primary_light">#C8E6C9</color>
-    <color name="accent_color">#2196F3</color>
-    <color name="background_color">#F5F5F5</color>
-    <color name="surface_color">#FFFFFF</color>
-    <color name="text_primary">#212121</color>
-    <color name="text_secondary">#757575</color>
-    <color name="progress_completed">#4CAF50</color>
-    <color name="progress_pending">#E0E0E0</color>
-    <!-- Your existing colors -->
+    <!-- Background Colors -->
+    <color name="light_background">#F7F9FC</color> <!-- Very Light Blue/Gray -->
+    <color name="card_background">#FFFFFF</color> <!-- Pure White -->
+    <color name="surface_color">#FFFFFF</color> <!-- White Surface -->
 
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
+    <!-- Text Colors -->
+    <color name="primary_text">#2D3748</color> <!-- Dark Gray for text -->
+    <color name="secondary_text">#718096</color> <!-- Medium Gray -->
+    <color name="text_white">#FFFFFF</color> <!-- White text -->
 
+    <!-- Accent Colors -->
+    <color name="accent_color">#FFD166</color> <!-- Bright Yellow -->
+    <color name="success_color">#06D6A0</color> <!-- Bright Green -->
+    <color name="warning_color">#FF9E6B</color> <!-- Bright Orange -->
 
-    <!-- Add these missing colors for the progress tracking -->
-
-    <color name="light_background">#F5F5F5</color>
-    <color name="primary_text">#212121</color>
-    <color name="secondary_text">#757575</color>
+    <!-- Additional Bright Colors -->
+    <color name="bright_blue">#118AB2</color>
+    <color name="bright_purple">#9B5DE5</color>
+    <color name="bright_pink">#F15BB5</color>
 </resources>

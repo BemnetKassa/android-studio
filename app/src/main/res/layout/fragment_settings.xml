@@ -25,5 +25,14 @@
         android:textColor="@color/text_secondary"
         android:gravity="center"
         android:layout_marginTop="32dp" />
+    <!-- Add this inside your fragment_settings.xml layout -->
+    <Button
+        android:id="@+id/btn_reset_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Reset All Progress"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/accent_color"
+        android:textColor="@android:color/white" />
 
 </LinearLayout>

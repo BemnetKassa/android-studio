@@ -73,7 +73,7 @@ public class ProgressManager {
         return sharedPreferences.getStringSet(KEY_ACHIEVEMENTS, new HashSet<>());
     }
 
-    // Progress calculation - FIXED VERSION
+    // Progress calculation
     public int calculateOverallProgress(List<Chapter> chapters) {
         if (chapters == null || chapters.isEmpty()) return 0;
 
@@ -83,7 +83,7 @@ public class ProgressManager {
         for (Chapter chapter : chapters) {
             for (int i = 0; i < chapter.getLessons().size(); i++) {
                 totalLessons++;
-                if (isLessonCompleted(chapter.getId(), i + 1)) { // Use index + 1 as lesson ID
+                if (isLessonCompleted(chapter.getId(), i + 1)) {
                     completedLessons++;
                 }
             }
@@ -95,7 +95,7 @@ public class ProgressManager {
     public int calculateChapterProgress(Chapter chapter) {
         int completedLessons = 0;
         for (int i = 0; i < chapter.getLessons().size(); i++) {
-            if (isLessonCompleted(chapter.getId(), i + 1)) { // Use index + 1 as lesson ID
+            if (isLessonCompleted(chapter.getId(), i + 1)) {
                 completedLessons++;
             }
         }
@@ -158,7 +158,7 @@ public class ProgressManager {
 
     private void showAchievementNotification(String achievementId) {
         android.widget.Toast.makeText(context,
-                "Achievement Unlocked: " + getAchievementName(achievementId),
+                "🎉 Achievement Unlocked: " + getAchievementName(achievementId),
                 android.widget.Toast.LENGTH_LONG).show();
     }
 
@@ -203,23 +203,5 @@ public class ProgressManager {
     // Reset progress (for testing)
     public void resetAllProgress() {
         sharedPreferences.edit().clear().apply();
-    }
-
-    // In ProgressManager.java - Add caching
-    private Map<String, Integer> progressCache = new HashMap<>();
-
-    public int getCachedChapterProgress(int chapterId) {
-        String key = "chapter_" + chapterId;
-        if (progressCache.containsKey(key)) {
-            return progressCache.get(key);
-        }
-
-        int progress = calculateChapterProgress(getChapterById(chapterId));
-        progressCache.put(key, progress);
-        return progress;
-    }
-
-    public void invalidateCache() {
-        progressCache.clear();
     }
 }

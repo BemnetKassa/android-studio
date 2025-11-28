@@ -28,22 +28,4 @@ public class SettingsFragment extends Fragment {
 
         return view;
     }
-    // Add this to your SettingsFragment
-    private void setupResetProgress() {
-        Button btnReset = getView().findViewById(R.id.btn_reset_progress);
-        if (btnReset != null) {
-            btnReset.setOnClickListener(v -> {
-                new AlertDialog.Builder(requireContext())
-                        .setTitle("Reset Progress")
-                        .setMessage("Are you sure you want to reset all progress? This cannot be undone.")
-                        .setPositiveButton("Reset", (dialog, which) -> {
-                            ProgressManager progressManager = new ProgressManager(requireContext());
-                            progressManager.resetAllProgress();
-                            Toast.makeText(requireContext(), "Progress reset successfully", Toast.LENGTH_SHORT).show();
-                        })
-                        .setNegativeButton("Cancel", null)
-                        .show();
-            });
-        }
-    }
 }
