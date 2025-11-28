@@ -52,7 +52,7 @@ public class ColoringActivityFragment extends Fragment {
 
     private void initializeViews(View view) {
         ivColoringOverlay = view.findViewById(R.id.iv_coloring_overlay);
-        colorPalette = view.findViewById(R.id.color_palette);
+        colorPalette = view.findViewById(R.id.color_palette); // This should work now
         seekBarBrush = view.findViewById(R.id.seekbar_brush);
         tvBrushSize = view.findViewById(R.id.tv_brush_size);
         btnClear = view.findViewById(R.id.btn_clear);

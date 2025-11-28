@@ -38,16 +38,14 @@ public class ActivitiesFragment extends Fragment {
         });
 
         view.findViewById(R.id.card_coloring).setOnClickListener(v -> {
-            // TODO: Implement coloring activity in Phase 5
             if (getActivity() instanceof MainActivity) {
-                // Placeholder for now
+                ((MainActivity) getActivity()).loadFragment(new ColoringActivityFragment());
             }
         });
 
         view.findViewById(R.id.card_typing).setOnClickListener(v -> {
-            // TODO: Implement typing practice in Phase 5
             if (getActivity() instanceof MainActivity) {
-                // Placeholder for now
+                ((MainActivity) getActivity()).loadFragment(new TypingPracticeFragment());
             }
         });
     }

@@ -58,6 +58,7 @@
 
     <!-- Color Palette -->
     <LinearLayout
+        android:id="@+id/color_palette"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -67,7 +68,7 @@
 
         <!-- Colors will be added dynamically -->
 
-    </LinearLayout>
+    </LinearLayout> <!-- THIS WAS MISSING -->
 
     <!-- Brush Size Selector -->
     <LinearLayout
