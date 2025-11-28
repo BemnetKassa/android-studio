@@ -10,6 +10,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import com.example.basicsofict.R;
+import com.example.basicsofict.utils.ProgressManager;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -206,5 +208,17 @@ public class DragDropActivityFragment extends Fragment {
 
         // Disable further interaction
         btnCheck.setEnabled(false);
+    }
+    // Add to the end of each activity fragment when activity is completed
+    private void markActivityCompleted() {
+        ProgressManager progressManager = new ProgressManager(requireContext());
+        progressManager.markActivityCompleted("multiple_choice"); // Change for each activity type
+
+        // Also mark the lesson as completed if this is part of a lesson
+        if (getArguments() != null) {
+            int chapterId = getArguments().getInt("chapterId", 1);
+            int lessonId = getArguments().getInt("lessonId", 1);
+            progressManager.markLessonCompleted(chapterId, lessonId);
+        }
     }
 }

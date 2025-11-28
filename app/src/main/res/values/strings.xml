@@ -9,4 +9,10 @@
     <string name="activities_title">Activities</string>
     <string name="settings_title">Settings</string>
     <string name="help_title">Help</string>
+    <!-- Add to strings.xml -->
+    <string name="overall_progress">Overall Progress</string>
+    <string name="chapter_progress">Chapter Progress</string>
+    <string name="achievements">Achievements</string>
+    <string name="lessons_completed">%d/%d lessons</string>
+    <string name="progress_percentage">%d%%</string>
 </resources>

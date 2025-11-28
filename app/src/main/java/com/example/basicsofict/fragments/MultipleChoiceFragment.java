@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import com.example.basicsofict.MainActivity;
+import com.example.basicsofict.utils.ProgressManager;
 
 public class MultipleChoiceFragment extends Fragment {
 
@@ -201,5 +202,17 @@ public class MultipleChoiceFragment extends Fragment {
         public String getQuestion() { return question; }
         public String[] getOptions() { return options; }
         public int getCorrectAnswer() { return correctAnswer; }
+    }
+    // Add to the end of each activity fragment when activity is completed
+    private void markActivityCompleted() {
+        ProgressManager progressManager = new ProgressManager(requireContext());
+        progressManager.markActivityCompleted("multiple_choice"); // Change for each activity type
+
+        // Also mark the lesson as completed if this is part of a lesson
+        if (getArguments() != null) {
+            int chapterId = getArguments().getInt("chapterId", 1);
+            int lessonId = getArguments().getInt("lessonId", 1);
+            progressManager.markLessonCompleted(chapterId, lessonId);
+        }
     }
 }

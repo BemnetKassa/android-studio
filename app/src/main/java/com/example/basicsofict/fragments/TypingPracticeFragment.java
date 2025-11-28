@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import com.example.basicsofict.R;
+import com.example.basicsofict.utils.ProgressManager;
 import com.google.android.material.textfield.TextInputEditText;
 import java.util.Random;
 
@@ -211,6 +212,18 @@ public class TypingPracticeFragment extends Fragment {
         super.onDestroyView();
         if (timer != null) {
             timer.cancel();
+        }
+        // Add to the end of each activity fragment when activity is completed
+        private void markActivityCompleted() {
+            ProgressManager progressManager = new ProgressManager(requireContext());
+            progressManager.markActivityCompleted("multiple_choice"); // Change for each activity type
+
+            // Also mark the lesson as completed if this is part of a lesson
+            if (getArguments() != null) {
+                int chapterId = getArguments().getInt("chapterId", 1);
+                int lessonId = getArguments().getInt("lessonId", 1);
+                progressManager.markLessonCompleted(chapterId, lessonId);
+            }
         }
     }
 }
