@@ -29,6 +29,7 @@ public class ProgressFragment extends Fragment {
     private ProgressBar overallProgressBar;
     private TextView achievementsCountText;
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
