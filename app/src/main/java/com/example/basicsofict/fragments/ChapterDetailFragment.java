@@ -22,6 +22,14 @@ public class ChapterDetailFragment extends Fragment {
     private RecyclerView recyclerViewLessons;
     private LessonAdapter lessonAdapter;
 
+    public static ChapterDetailFragment newInstance(Chapter chapter) {
+        ChapterDetailFragment fragment = new ChapterDetailFragment();
+        Bundle args = new Bundle();
+        args.putSerializable("chapter", chapter);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

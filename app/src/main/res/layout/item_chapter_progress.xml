@@ -3,55 +3,101 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="2dp">
+    android:layout_marginBottom="12dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="6dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="20dp"
+        android:background="@drawable/chapter_card_background">
 
-        <TextView
-            android:id="@+id/chapterTitle"
+        <!-- Chapter Header -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Chapter Title"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/primary_text" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_chapter"
+                android:tint="@color/primary_color" />
+
+            <TextView
+                android:id="@+id/chapterTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:text="Chapter Title"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary_text" />
+
+            <TextView
+                android:id="@+id/progressText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0%"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary_color"
+                android:background="@drawable/progress_pill_background"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="4dp" />
+
+        </LinearLayout>
+
+        <!-- Progress Bar -->
         <ProgressBar
             android:id="@+id/chapterProgressBar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="4dp"
-            android:progress="0" />
+            android:layout_height="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp"
+            android:progress="0"
+            android:progressTint="@color/success_green"
+            android:progressBackgroundTint="@color/light_gray" />
 
+        <!-- Lessons Info -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-            <TextView
-                android:id="@+id/progressText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="0%"
-                android:textSize="14sp"
-                android:textColor="@color/secondary_text" />
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_lesson"
+                android:tint="@color/secondary_text" />
 
             <TextView
                 android:id="@+id/lessonsCompletedText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0/0 lessons"
+                android:layout_marginStart="8dp"
+                android:text="0/0 lessons completed"
                 android:textSize="14sp"
                 android:textColor="@color/secondary_text" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <!-- Completion Badge -->
+            <ImageView
+                android:id="@+id/completionBadge"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_incomplete"
+                android:visibility="gone" />
 
         </LinearLayout>
 

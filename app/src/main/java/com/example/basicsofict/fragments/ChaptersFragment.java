@@ -40,7 +40,7 @@ public class ChaptersFragment extends Fragment implements ChapterAdapter.OnChapt
     }
 
     private void initializeRecyclerView(View view) {
-        recyclerView = view.findViewById(R.id.recycler_view_chapters);
+        recyclerView = view.findViewById(R.id.recyclerViewChapters);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         adapter = new ChapterAdapter(chapters, progressManager, this);
