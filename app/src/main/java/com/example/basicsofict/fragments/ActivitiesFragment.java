@@ -4,49 +4,52 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import com.example.basicsofict.R;
-import com.example.basicsofict.MainActivity;
 
 public class ActivitiesFragment extends Fragment {
 
-    public ActivitiesFragment() {
-        // Required empty public constructor
-    }
-
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_activities, container, false);
 
-        setupActivityCards(view);
+        setupClickListeners(view);
 
         return view;
     }
 
-    private void setupActivityCards(View view) {
+    private void setupClickListeners(View view) {
+        // Multiple Choice Quiz
+        view.findViewById(R.id.card_quiz).setOnClickListener(v -> {
+            navigateToFragment(new MultipleChoiceFragment());
+        });
+
+        // Drag & Drop Puzzle
         view.findViewById(R.id.card_drag_drop).setOnClickListener(v -> {
-            if (getActivity() instanceof MainActivity) {
-                ((MainActivity) getActivity()).loadFragment(new DragDropActivityFragment());
-            }
+            navigateToFragment(new DragDropActivityFragment());
         });
 
-        view.findViewById(R.id.card_multiple_choice).setOnClickListener(v -> {
-            if (getActivity() instanceof MainActivity) {
-                ((MainActivity) getActivity()).loadFragment(new MultipleChoiceFragment());
-            }
-        });
-
+        // Coloring Activity
         view.findViewById(R.id.card_coloring).setOnClickListener(v -> {
-            if (getActivity() instanceof MainActivity) {
-                ((MainActivity) getActivity()).loadFragment(new ColoringActivityFragment());
-            }
+            navigateToFragment(new ColoringActivityFragment());
         });
 
+        // Typing Practice
         view.findViewById(R.id.card_typing).setOnClickListener(v -> {
-            if (getActivity() instanceof MainActivity) {
-                ((MainActivity) getActivity()).loadFragment(new TypingPracticeFragment());
-            }
+            navigateToFragment(new TypingPracticeFragment());
         });
+    }
+
+    private void navigateToFragment(Fragment fragment) {
+        if (getActivity() != null) {
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.content_frame, fragment); // Use your FrameLayout ID
+            transaction.addToBackStack(null);
+            transaction.commit();
+        }
     }
 }

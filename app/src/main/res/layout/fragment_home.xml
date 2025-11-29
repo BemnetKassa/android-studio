@@ -11,21 +11,20 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Welcome Card - Bright Gradient -->
+        <!-- Welcome Card - Bright Teal -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             app:cardCornerRadius="20dp"
             app:cardElevation="8dp"
-            app:cardBackgroundColor="@color/card_background">
+            app:cardBackgroundColor="@color/primary_color">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="24dp"
-                android:background="@drawable/welcome_card_gradient">
+                android:padding="24dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -33,21 +32,21 @@
                     android:text="Welcome to ICT Grade 1!"
                     android:textSize="26sp"
                     android:textStyle="bold"
-                    android:textColor="@color/primary_text" />
+                    android:textColor="@color/text_white" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Hello Friends! My name is Kimo, I will guide you throughout your ICT Skills book."
                     android:textSize="16sp"
-                    android:textColor="@color/secondary_text"
+                    android:textColor="@color/text_white"
                     android:layout_marginTop="12dp"
                     android:lineSpacingExtra="4dp" />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:background="@drawable/divider_gradient"
+                    android:background="@color/primary_light"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="16dp" />
 
@@ -57,14 +56,14 @@
                     android:text="What you will learn:"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="@color/primary_text" />
+                    android:textColor="@color/text_white" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="• Computer Safety\n• Using Tablets\n• Mouse Skills\n• Keyboard Skills\n• Internet Safety\n• Drawing and Videos"
+                    android:text="• Computer Safety&#10;• Using Tablets&#10;• Mouse Skills&#10;• Keyboard Skills&#10;• Internet Safety&#10;• Drawing and Videos"
                     android:textSize="14sp"
-                    android:textColor="@color/secondary_text"
+                    android:textColor="@color/text_white"
                     android:layout_marginTop="8dp"
                     android:lineSpacingExtra="6dp" />
 
@@ -83,21 +82,20 @@
             android:layout_marginTop="24dp"
             android:layout_marginBottom="8dp" />
 
-        <!-- Progress Stats Card - Bright & Colorful -->
+        <!-- Progress Stats Card - Bright Green -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             app:cardCornerRadius="20dp"
             app:cardElevation="6dp"
-            app:cardBackgroundColor="@color/card_background">
+            app:cardBackgroundColor="@color/success_color">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="24dp"
-                android:background="@drawable/progress_card_gradient">
+                android:padding="24dp">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -113,29 +111,29 @@
                         android:text="0"
                         android:textSize="32sp"
                         android:textStyle="bold"
-                        android:textColor="@color/primary_color" />
+                        android:textColor="@color/text_white" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Lessons Completed"
                         android:textSize="13sp"
-                        android:textColor="@color/secondary_text" />
+                        android:textColor="@color/text_white" />
 
                 </LinearLayout>
 
                 <View
                     android:layout_width="2dp"
                     android:layout_height="50dp"
-                    android:background="@drawable/vertical_divider" />
+                    android:background="@color/primary_light"
+                    android:layout_marginHorizontal="16dp" />
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_marginStart="20dp">
+                    android:gravity="center">
 
                     <TextView
                         android:id="@+id/tv_overall_progress"
@@ -144,14 +142,14 @@
                         android:text="0%"
                         android:textSize="32sp"
                         android:textStyle="bold"
-                        android:textColor="@color/success_color" />
+                        android:textColor="@color/text_white" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Overall Progress"
                         android:textSize="13sp"
-                        android:textColor="@color/secondary_text" />
+                        android:textColor="@color/text_white" />
 
                 </LinearLayout>
 
@@ -175,7 +173,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <!-- Continue Learning Card - Bright Green -->
+            <!-- Continue Learning Card - Bright Blue -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="120dp"
@@ -187,15 +185,14 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:id="@+id/card_continue_learning"
-                app:cardBackgroundColor="@color/card_background">
+                app:cardBackgroundColor="@color/bright_blue">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:gravity="center"
-                    android:padding="20dp"
-                    android:background="@drawable/continue_gradient">
+                    android:padding="20dp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -217,7 +214,7 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!-- All Chapters Card - Bright Blue -->
+            <!-- All Chapters Card - Bright Purple -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="120dp"
@@ -229,21 +226,21 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:id="@+id/card_all_chapters"
-                app:cardBackgroundColor="@color/card_background">
+                app:cardBackgroundColor="@color/bright_purple">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:gravity="center"
-                    android:padding="20dp"
-                    android:background="@drawable/chapters_gradient">
+                    android:padding="20dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="📚"
-                        android:textSize="28sp" />
+                        android:textSize="28sp"
+                        android:textColor="@color/text_white" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -253,6 +250,102 @@
                         android:textColor="@color/text_white"
                         android:textStyle="bold"
                         android:layout_marginTop="12dp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <!-- Activities Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fun Activities"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_text"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Coloring Card - Bright Pink -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/bright_pink">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🎨"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Coloring"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_white"
+                        android:textStyle="bold"
+                        android:layout_marginTop="8dp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Games Card - Bright Yellow -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/accent_color">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🎮"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Games"
+                        android:textSize="14sp"
+                        android:textColor="@color/primary_text"
+                        android:textStyle="bold"
+                        android:layout_marginTop="8dp" />
 
                 </LinearLayout>
 

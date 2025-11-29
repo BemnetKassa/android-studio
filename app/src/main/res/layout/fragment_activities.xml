@@ -3,25 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:background="@color/background_color">
+    android:background="@color/light_background"
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!-- Header -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Interactive Activities"
-            android:textSize="24sp"
+            android:text="Learning Activities"
+            android:textSize="28sp"
             android:textStyle="bold"
-            android:textColor="@color/text_primary"
+            android:textColor="@color/primary_text"
             android:gravity="center"
-            android:layout_marginBottom="24dp" />
+            android:padding="16dp" />
 
-        <!-- Activity Grid -->
+        <!-- Activities Grid -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,61 +34,26 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
+                <!-- Multiple Choice Card -->
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/card_drag_drop"
+                    android:id="@+id/card_quiz"
                     android:layout_width="0dp"
-                    android:layout_height="120dp"
+                    android:layout_height="140dp"
                     android:layout_weight="1"
                     android:layout_margin="8dp"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="4dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="6dp"
                     android:foreground="?attr/selectableItemBackground"
                     android:clickable="true"
-                    android:focusable="true">
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/bright_blue">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
                         android:gravity="center"
-                        android:padding="16dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="🧩"
-                            android:textSize="32sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Drag &amp; Drop"
-                            android:textSize="14sp"
-                            android:textColor="@color/text_primary"
-                            android:layout_marginTop="8dp" />
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/card_multiple_choice"
-                    android:layout_width="0dp"
-                    android:layout_height="120dp"
-                    android:layout_weight="1"
-                    android:layout_margin="8dp"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="4dp"
-                    android:foreground="?attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:focusable="true">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="16dp">
+                        android:padding="20dp">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -99,9 +65,66 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Quiz"
-                            android:textSize="14sp"
-                            android:textColor="@color/text_primary"
-                            android:layout_marginTop="8dp" />
+                            android:textSize="16sp"
+                            android:textColor="@color/text_white"
+                            android:textStyle="bold"
+                            android:layout_marginTop="12dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Multiple Choice"
+                            android:textSize="12sp"
+                            android:textColor="@color/text_white"
+                            android:layout_marginTop="4dp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Drag & Drop Card -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_drag_drop"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="6dp"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/bright_purple">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="20dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🧩"
+                            android:textSize="32sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Puzzle"
+                            android:textSize="16sp"
+                            android:textColor="@color/text_white"
+                            android:textStyle="bold"
+                            android:layout_marginTop="12dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Drag and Drop"
+                            android:textSize="12sp"
+                            android:textColor="@color/text_white"
+                            android:layout_marginTop="4dp" />
 
                     </LinearLayout>
 
@@ -115,24 +138,26 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
+                <!-- Coloring Card -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/card_coloring"
                     android:layout_width="0dp"
-                    android:layout_height="120dp"
+                    android:layout_height="140dp"
                     android:layout_weight="1"
                     android:layout_margin="8dp"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="4dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="6dp"
                     android:foreground="?attr/selectableItemBackground"
                     android:clickable="true"
-                    android:focusable="true">
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/bright_pink">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
                         android:gravity="center"
-                        android:padding="16dp">
+                        android:padding="20dp">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -143,33 +168,44 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:text="Art"
+                            android:textSize="16sp"
+                            android:textColor="@color/text_white"
+                            android:textStyle="bold"
+                            android:layout_marginTop="12dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:text="Coloring"
-                            android:textSize="14sp"
-                            android:textColor="@color/text_primary"
-                            android:layout_marginTop="8dp" />
+                            android:textSize="12sp"
+                            android:textColor="@color/text_white"
+                            android:layout_marginTop="4dp" />
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
+                <!-- Typing Card -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/card_typing"
                     android:layout_width="0dp"
-                    android:layout_height="120dp"
+                    android:layout_height="140dp"
                     android:layout_weight="1"
                     android:layout_margin="8dp"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="4dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="6dp"
                     android:foreground="?attr/selectableItemBackground"
                     android:clickable="true"
-                    android:focusable="true">
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/accent_color">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
                         android:gravity="center"
-                        android:padding="16dp">
+                        android:padding="20dp">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -181,9 +217,18 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Typing"
-                            android:textSize="14sp"
-                            android:textColor="@color/text_primary"
-                            android:layout_marginTop="8dp" />
+                            android:textSize="16sp"
+                            android:textColor="@color/primary_text"
+                            android:textStyle="bold"
+                            android:layout_marginTop="12dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Keyboard Practice"
+                            android:textSize="12sp"
+                            android:textColor="@color/primary_text"
+                            android:layout_marginTop="4dp" />
 
                     </LinearLayout>
 

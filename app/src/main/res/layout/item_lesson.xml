@@ -3,59 +3,68 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="4dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="2dp"
-    android:foreground="?attr/selectableItemBackground"
-    android:clickable="true"
-    android:focusable="true">
+    android:layout_margin="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="@color/card_background">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:padding="20px"
+        android:background="@drawable/lesson_item_gradient">
 
-        <!-- Completion Indicator -->
-        <View
-            android:id="@+id/completion_indicator"
-            android:layout_width="4dp"
-            android:layout_height="40dp"
-            android:background="@color/progress_pending"
-            android:layout_marginEnd="12dp" />
+        <!-- Lesson Status Icon -->
+        <LinearLayout
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/lesson_status_circle"
+            android:gravity="center">
 
+            <TextView
+                android:id="@+id/ivLessonStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📖"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <!-- Lesson Content -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingStart="16dp">
 
             <TextView
-                android:id="@+id/tv_lesson_title"
+                android:id="@+id/tvLessonTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Lesson Title"
+                android:textColor="@color/primary_text"
                 android:textSize="16sp"
-                android:textColor="@color/text_primary" />
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tv_lesson_type"
+                android:id="@+id/tvLessonType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lesson Type"
+                android:text="Theory • 10 min"
+                android:textColor="@color/secondary_text"
                 android:textSize="12sp"
-                android:textColor="@color/text_secondary"
-                android:layout_marginTop="4dp" />
+                android:layout_marginTop="2dp" />
 
         </LinearLayout>
 
-        <!-- Chevron Icon -->
+        <!-- Action Arrow -->
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/ic_chevron_right"
-            android:layout_gravity="center_vertical"
-            app:tint="@color/text_secondary" />
+            android:tint="@color/primary_color" />
 
     </LinearLayout>
 

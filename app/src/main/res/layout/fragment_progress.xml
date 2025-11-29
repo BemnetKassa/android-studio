@@ -15,15 +15,16 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp">
+            android:layout_margin="8dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@color/success_color">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="24dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -31,16 +32,17 @@
                     android:text="Overall Progress"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textColor="@color/primary_text" />
+                    android:textColor="@color/text_white" />
 
                 <ProgressBar
                     android:id="@+id/overallProgressBar"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
                     android:layout_height="24dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginBottom="8dp"
-                    android:progress="0" />
+                    android:progress="0"
+                    android:progressTint="@color/accent_color" />
 
                 <TextView
                     android:id="@+id/overallProgressText"
@@ -48,7 +50,8 @@
                     android:layout_height="wrap_content"
                     android:text="Overall Progress: 0%"
                     android:textSize="16sp"
-                    android:textColor="@color/secondary_text" />
+                    android:textColor="@color/text_white"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/achievementsCountText"
@@ -56,26 +59,30 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="Achievements: 0/10"
-                    android:textSize="16sp"
-                    android:textColor="@color/secondary_text" />
+                    android:textSize="14sp"
+                    android:textColor="@color/text_white" />
 
             </LinearLayout>
+
         </androidx.cardview.widget.CardView>
 
-        <!-- Chapter Progress -->
+        <!-- Chapter Progress Header -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Chapter Progress"
-            android:textSize="18sp"
+            android:textSize="22sp"
             android:textStyle="bold"
-            android:layout_marginBottom="8dp"
-            android:textColor="@color/primary_text" />
+            android:textColor="@color/primary_text"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp" />
 
+        <!-- Chapter Progress List -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/progressRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
+
 </ScrollView>
