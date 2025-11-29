@@ -40,4 +40,11 @@
     <color name="bright_blue">#118AB2</color>
     <color name="bright_purple">#9B5DE5</color>
     <color name="bright_pink">#F15BB5</color>
+
+        <!-- Missing colors needed for progress layout -->
+        <color name="background_white">#FFFFFF</color>
+        <color name="light_gray">#E0E0E0</color>
+        <color name="accent_yellow">#FFC107</color>
+        <color name="success_green">#4CAF50</color>
+
 </resources>

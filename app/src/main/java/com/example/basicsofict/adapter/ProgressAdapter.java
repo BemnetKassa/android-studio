@@ -25,7 +25,7 @@ public class ProgressAdapter extends RecyclerView.Adapter<ProgressAdapter.Progre
     @Override
     public ProgressViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_chapter_progress, parent, false);
+                .inflate(R.layout.item_chapters_progress, parent, false);
         return new ProgressViewHolder(view);
     }
 
