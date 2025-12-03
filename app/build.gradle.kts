@@ -40,6 +40,9 @@ dependencies {
     implementation("androidx.cardview:cardview:1.0.0")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
 
+    // *** FIX: ADD THE MISSING VIEWMODEL DEPENDENCY WITH CORRECT SYNTAX ***
+    implementation("androidx.lifecycle:lifecycle-viewmodel:2.6.2")
+
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("androidx.navigation:navigation-fragment:2.5.3")
     implementation("androidx.navigation:navigation-ui:2.5.3")
@@ -47,4 +50,15 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    // *** FIX: ADD THIS BLOCK TO RESOLVE KOTLIN VERSION CONFLICTS ***
+    // This tells Gradle to force all Kotlin libraries to use a single version
+    constraints {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.10") {
+            because("Align all kotlin-stdlib libraries to a single version")
+        }
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.10") {
+            because("Align all kotlin-stdlib libraries to a single version")
+        }
+    }
 }
