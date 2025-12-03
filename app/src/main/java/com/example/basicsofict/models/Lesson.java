@@ -9,6 +9,10 @@ public class Lesson implements Serializable {
     private String imageResource;
     private String videoResource;
 
+    private String duration;
+    private String type;
+
+
     public Lesson(String title, String content, String activityType) {
         this.title = title;
         this.content = content;
@@ -19,6 +23,11 @@ public class Lesson implements Serializable {
     // Getters and Setters
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }
+
+    // *** ADD THIS METHOD ***
+    public String getType() {
+        return type;
+    }
 
     public String getContent() { return content; }
     public void setContent(String content) { this.content = content; }
@@ -34,4 +43,12 @@ public class Lesson implements Serializable {
 
     public String getVideoResource() { return videoResource; }
     public void setVideoResource(String videoResource) { this.videoResource = videoResource; }
+
+    public String getDuration() {
+        return duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
 }

@@ -6,12 +6,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider; // FIX: Import ViewModelProvider
+
 import com.example.basicsofict.R;
-import com.example.basicsofict.MainActivity;
 import com.example.basicsofict.models.Chapter;
 import com.example.basicsofict.models.Lesson;
 import com.example.basicsofict.utils.ProgressManager;
+import com.example.basicsofict.viewmodel.SharedViewModel; // FIX: Import SharedViewModel
 
 import java.io.Serializable;
 
@@ -25,6 +29,7 @@ public class LessonDetailFragment extends Fragment {
     private Lesson lesson;
     private int lessonIndex;
     private ProgressManager progressManager;
+    private SharedViewModel sharedViewModel; // FIX: Add the ViewModel variable
 
     public LessonDetailFragment() {
         // Required empty public constructor
@@ -43,19 +48,33 @@ public class LessonDetailFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Initialize the ViewModel, scoped to the MainActivity
+        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
+
+        // Initialize non-view related objects here
+        progressManager = new ProgressManager(requireContext());
+
         if (getArguments() != null) {
             chapter = (Chapter) getArguments().getSerializable(ARG_CHAPTER);
             lesson = (Lesson) getArguments().getSerializable(ARG_LESSON);
             lessonIndex = getArguments().getInt(ARG_LESSON_INDEX);
         }
-        progressManager = new ProgressManager(requireContext());
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_lesson_detail, container, false);
 
+        // Re-check arguments here to be safe when the view is recreated.
+        if (getArguments() != null) {
+            chapter = (Chapter) getArguments().getSerializable(ARG_CHAPTER);
+            lesson = (Lesson) getArguments().getSerializable(ARG_LESSON);
+            lessonIndex = getArguments().getInt(ARG_LESSON_INDEX);
+        }
+
+        // Now, perform the setup.
         if (chapter != null && lesson != null) {
             initializeViews(view);
             setupButtons(view);
@@ -68,15 +87,22 @@ public class LessonDetailFragment extends Fragment {
         TextView tvTitle = view.findViewById(R.id.tv_lesson_title);
         TextView tvContent = view.findViewById(R.id.tv_lesson_content);
 
-        tvTitle.setText(lesson.getTitle());
-        tvContent.setText(lesson.getContent());
+        if (lesson != null) {
+            tvTitle.setText(lesson.getTitle());
+            tvContent.setText(lesson.getContent());
+        }
     }
 
     private void setupButtons(View view) {
         Button btnMarkComplete = view.findViewById(R.id.btn_mark_complete);
         Button btnNextLesson = view.findViewById(R.id.btn_next_lesson);
 
-        // Check if lesson is already completed
+        if (chapter == null) {
+            btnMarkComplete.setVisibility(View.GONE);
+            btnNextLesson.setVisibility(View.GONE);
+            return;
+        }
+
         boolean isCompleted = progressManager.isLessonCompleted(chapter.getId(), lessonIndex);
         if (isCompleted) {
             btnMarkComplete.setText("Completed ✓");
@@ -88,17 +114,16 @@ public class LessonDetailFragment extends Fragment {
             btnMarkComplete.setText("Completed ✓");
             btnMarkComplete.setEnabled(false);
 
-            // Update progress in home fragment
-            if (getActivity() instanceof MainActivity) {
-                // You can add a callback here to update the home screen
-            }
+            // FIX: Use the ViewModel to send the update signal instead of calling the activity directly
+            sharedViewModel.triggerProgressUpdate();
         });
 
         btnNextLesson.setOnClickListener(v -> {
-            // Navigate to next lesson or back to chapter
-            if (getActivity() instanceof MainActivity) {
-                ((MainActivity) getActivity()).onBackPressed();
+            if (getActivity() != null) {
+                getActivity().getSupportFragmentManager().popBackStack();
             }
         });
     }
+
+    // This interface is no longer needed with the ViewModel approach, so it has been removed.
 }

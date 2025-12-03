@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
@@ -70,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="8px">
+            android:layout_marginTop="8dp">
 
             <TextView
                 android:id="@+id/progressText"
@@ -90,6 +91,17 @@
                 android:textColor="@color/secondary_text" />
 
         </LinearLayout>
+
+        <!-- FIX: Added RecyclerView for lessons -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lessonsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            tools:listitem="@layout/item_lesson_progress" />
+        <!-- Note: Replace item_lesson_progress with your actual lesson item layout if it's named differently -->
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
