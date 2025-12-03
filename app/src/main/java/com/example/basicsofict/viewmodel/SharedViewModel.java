@@ -3,26 +3,19 @@ package com.example.basicsofict.viewmodel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+import com.example.basicsofict.utils.Event; // <<< IMPORT THE NEW EVENT CLASS
 
 public class SharedViewModel extends ViewModel {
 
-    // This LiveData will hold a simple trigger event. Using a Boolean is common and effective.
-    private final MutableLiveData<Boolean> progressUpdateTrigger = new MutableLiveData<>();
+    // *** FIX: Change from a simple Boolean to an Event-wrapped Boolean ***
+    private final MutableLiveData<Event<Boolean>> progressUpdateTrigger = new MutableLiveData<>();
 
-    /**
-     * Call this method from anywhere (like LessonDetailFragment) when a lesson is completed.
-     * It posts a new value to the LiveData, which will notify any active observers.
-     */
     public void triggerProgressUpdate() {
-        progressUpdateTrigger.setValue(true);
+        // Wrap the trigger in an Event object
+        progressUpdateTrigger.setValue(new Event<>(true));
     }
 
-    /**
-     * Fragments that need to know about the update (like ProgressFragment) will observe this LiveData.
-     * When the value changes, they know it's time to refresh their UI.
-     * @return The LiveData object for observers to subscribe to.
-     */
-    public LiveData<Boolean> getProgressUpdateTrigger() {
+    public LiveData<Event<Boolean>> getProgressUpdateTrigger() {
         return progressUpdateTrigger;
     }
 }

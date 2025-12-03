@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="@color/light_background">
+    android:background="@color/light_background"
+    tools:context=".fragments.HomeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Welcome Card - Bright Teal -->
+        <!-- Welcome Card -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -82,7 +84,7 @@
             android:layout_marginTop="24dp"
             android:layout_marginBottom="8dp" />
 
-        <!-- Progress Stats Card - Bright Green -->
+        <!-- Progress Stats Card -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -173,8 +175,9 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <!-- Continue Learning Card - Bright Blue -->
+            <!-- Continue Learning Card -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/card_continue_learning"
                 android:layout_width="0dp"
                 android:layout_height="120dp"
                 android:layout_weight="1"
@@ -184,7 +187,6 @@
                 android:foreground="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
-                android:id="@+id/card_continue_learning"
                 app:cardBackgroundColor="@color/bright_blue">
 
                 <LinearLayout
@@ -214,8 +216,9 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!-- All Chapters Card - Bright Purple -->
+            <!-- All Chapters Card -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/card_all_chapters"
                 android:layout_width="0dp"
                 android:layout_height="120dp"
                 android:layout_weight="1"
@@ -225,7 +228,6 @@
                 android:foreground="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
-                android:id="@+id/card_all_chapters"
                 app:cardBackgroundColor="@color/bright_purple">
 
                 <LinearLayout
@@ -257,101 +259,118 @@
 
         </LinearLayout>
 
-        <!-- Activities Section -->
-        <TextView
+        <!-- *** FIX: WRAPPED THE ACTIVITIES SECTION IN A CLICKABLE CARDVIEW *** -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_fun_activities"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Fun Activities"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="@color/primary_text"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="8dp" />
+            android:layout_margin="8dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@color/cardview_light_background">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-            <!-- Coloring Card - Bright Pink -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:layout_margin="8dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
-                android:foreground="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardBackgroundColor="@color/bright_pink">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Fun Activities"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/primary_text"
+                    android:layout_marginBottom="8dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="16dp">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="🎨"
-                        android:textSize="24sp" />
+                    <!-- Coloring Card -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:layout_margin="8dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="@color/bright_pink">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Coloring"
-                        android:textSize="14sp"
-                        android:textColor="@color/text_white"
-                        android:textStyle="bold"
-                        android:layout_marginTop="8dp" />
+                        <LinearLayout
+                            android:id="@+id/card_coloring"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🎨"
+                                android:textSize="24sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Coloring"
+                                android:textSize="14sp"
+                                android:textColor="@color/text_white"
+                                android:textStyle="bold"
+                                android:layout_marginTop="8dp" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Games Card -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:layout_margin="8dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="@color/accent_color">
+
+                        <LinearLayout
+                            android:id="@+id/card_games"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🎮"
+                                android:textSize="24sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Games"
+                                android:textSize="14sp"
+                                android:textColor="@color/primary_text"
+                                android:textStyle="bold"
+                                android:layout_marginTop="8dp" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
 
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+            </LinearLayout>
 
-            <!-- Games Card - Bright Yellow -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:layout_margin="8dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
-                android:foreground="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardBackgroundColor="@color/accent_color">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="🎮"
-                        android:textSize="24sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Games"
-                        android:textSize="14sp"
-                        android:textColor="@color/primary_text"
-                        android:textStyle="bold"
-                        android:layout_marginTop="8dp" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 

@@ -1,77 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@color/background_color">
+    android:background="@color/background_color"
+    android:padding="16dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Drag and Drop Activity"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/text_primary"
-        android:gravity="center"
-        android:layout_marginBottom="16dp" />
-
-    <TextView
-        android:id="@+id/tv_instruction"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Drag the computer parts to their correct names"
-        android:textSize="16sp"
-        android:textColor="@color/text_secondary"
-        android:gravity="center"
-        android:layout_marginBottom="24dp" />
-
-    <!-- Draggable Items -->
+    <!-- Section 1: Draggable Items (Anchored to the Top) -->
     <LinearLayout
         android:id="@+id/drag_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
         android:gravity="center"
-        android:layout_marginBottom="32dp">
-
-        <!-- Items will be added dynamically -->
-
+        android:minHeight="70dp"
+        android:orientation="horizontal">
+        <!-- Draggable image views will be added dynamically here -->
     </LinearLayout>
 
-    <!-- Drop Targets -->
+    <!-- Section 3: Check Button and Result (Anchored to the Bottom) -->
+    <LinearLayout
+        android:id="@+id/footer_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="16dp">
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/primary_color"
+            android:textSize="19sp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_check"
+            style="@style/ButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Check Answers" />
+    </LinearLayout>
+
+    <!-- Section 2: Drop Targets (Fills the space between top and bottom) -->
     <LinearLayout
         android:id="@+id/drop_container"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:gravity="center">
-
-        <!-- Drop targets will be added dynamically -->
-
+        android:layout_height="match_parent"
+        android:layout_above="@id/footer_section"
+        android:layout_below="@id/drag_container"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="vertical">
+        <!-- The new "Question + Drop Zone" layouts will be added dynamically here -->
     </LinearLayout>
 
-    <!-- Result Message -->
-    <TextView
-        android:id="@+id/tv_result"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="16sp"
-        android:textColor="@color/primary_color"
-        android:gravity="center"
-        android:layout_marginTop="16dp"
-        android:visibility="gone" />
-
-    <Button
-        android:id="@+id/btn_check"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Check Answers"
-        android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        style="@style/ButtonStyle" />
-
-</LinearLayout>
+</RelativeLayout>
